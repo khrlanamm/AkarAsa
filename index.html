@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKARASA - Prediksi Pemulihan Lahan</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AKARASA</h1>
+        <p class="philosophy">
+          "AkarAsa" adalah tentang harapan yang membumi. "Akar" melambangkan
+          fondasi ilmu dan tindakan nyata yang menjadi sauh di tengah kerusakan,
+          sementara "Asa" adalah visi luhur akan pemulihan. Nama ini mengajarkan
+          bahwa sebuah cita-cita besar tidak lahir dari angan kosong, melainkan
+          harus tumbuh dari kebijaksanaan yang tertanam kuat dalam realitas,
+          mengubah keterpurukan menjadi kehidupan baru.
+        </p>
+      </header>
+
+      <main>
+        <div class="input-section">
+          <h2>Parameter Simulasi</h2>
+          <form id="simulation-form">
+            <div class="form-group">
+              <label for="initial_A">Nilai Awal Biomassa (A₀) (kg/ha)</label>
+              <input
+                type="number"
+                id="initial_A"
+                name="initial_A"
+                value="50"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="initial_N">Nilai Awal Nikel (N₀) (mg/kg)</label>
+              <input
+                type="number"
+                id="initial_N"
+                name="initial_N"
+                value="2500"
+                required
+              />
+            </div>
+            <button type="submit" id="submit-btn">Simulasikan Pemulihan</button>
+          </form>
+        </div>
+
+        <div id="results-section" class="hidden">
+          <div id="loader" class="loader hidden"></div>
+
+          <p id="interpretation-text"></p>
+
+          <div class="plot-container">
+            <h2>Potret Fase Sistem</h2>
+            <canvas id="phase-plot-canvas"></canvas>
+          </div>
+
+          <div class="plot-container">
+            <h2>Grafik Time Series</h2>
+            <canvas id="ts-plot-canvas"></canvas>
+          </div>
+        </div>
+      </main>
+
+      <section class="articles-section">
+        <h2>Bacaan Terkait</h2>
+        <div class="articles-grid" id="articles-grid-container">
+          <!-- Article cards will be dynamically inserted here by JavaScript -->
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          &copy; 2025 RECLAIM-WEB Project. Ditenagai oleh Sains dan Harapan.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Chart.js for plotting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
