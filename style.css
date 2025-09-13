@@ -1,218 +1,295 @@
-/* All CSS from your style.css file is placed here */
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f4f1e9;
-  color: #4b4b4b;
-  line-height: 1.6;
+/* ======== PENGATURAN DASAR ======== */
+:root {
+  --primary-color: #27ae60;
+  --secondary-color: #2c3e50;
+  --background-light: #ffffff;
+  --background-dark: #f4f7f6;
+  --text-color: #333;
+  --header-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-light);
 }
 
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding: 30px 40px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  border-top: 5px solid #5d4037;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-header {
-  text-align: center;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-
-header h1 {
-  font-family: "Merriweather", serif;
-  font-size: 3em;
-  color: #388e3c;
-  margin: 0;
-}
-
-header .philosophy {
-  font-size: 1.1em;
-  color: #5d4037;
-  max-width: 700px;
-  margin: 15px auto 0 auto;
-  font-style: italic;
-}
-
-.input-section h2,
-#results-section h2,
-.articles-section h2 {
-  font-family: "Merriweather", serif;
-  color: #388e3c;
-  border-bottom: 2px solid #c8e6c9;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #5d4037;
-}
-
-.form-group input {
+/* ======== HEADER & NAVBAR ======== */
+.main-header {
+  background-color: var(--background-light);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #d7ccc8;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1em;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: var(--header-height);
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #388e3c;
-}
-
-button:disabled {
-  background-color: #a5d6a7;
-  cursor: not-allowed;
-}
-
-.hidden {
-  display: none;
-}
-
-#results-section {
-  margin-top: 40px;
-  text-align: center;
-}
-
-#interpretation-text {
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-size: 1.2em;
-  background-color: #e8f5e9;
-  color: #1b5e20;
-  padding: 15px;
-  border-radius: 5px;
-  border-left: 5px solid #4caf50;
-  text-align: left;
-}
-
-.plot-container {
-  margin-top: 30px;
-  border: 1px solid #e0e0e0;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #fafafa;
-}
-
-.plot-container h2 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.articles-section {
-  margin-top: 50px;
-  padding-top: 30px;
-  border-top: 1px solid #e0e0e0;
-}
-
-.articles-section h2 {
-  text-align: center;
-}
-
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.article-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.article-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.article-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
 }
 
-.article-card img {
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo-img {
+  height: 45px;
+  margin-right: 10px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 500;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+  background-color: #e8f6f3;
+}
+
+/* ======== KONTEN UTAMA ======== */
+main {
+  margin-top: var(--header-height);
+}
+
+.content-section {
+  padding: 60px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+.alternate-bg {
+  background-color: var(--background-dark);
+}
+
+.content-layout {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.image-container img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  max-width: 450px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: block;
-  background-color: #eee;
+  margin-bottom: 15px; /* Margin untuk gambar bertumpuk */
 }
 
-.article-card .card-content {
-  padding: 15px;
+.text-container {
+  flex: 1.2; /* Beri ruang lebih untuk teks */
 }
 
-.article-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-family: "Merriweather", serif;
-  font-size: 1.2em;
-  color: #5d4037;
+.text-container h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
 }
 
-.article-card p {
-  font-size: 0.95em;
-  margin-bottom: 0;
-}
-
-footer {
+/* ======== ALAT PREDIKSI ======== */
+.section-title {
   text-align: center;
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+}
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 1rem;
+}
+
+.controls button {
+  padding: 10px 25px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  height: 45px; /* Samakan tinggi dengan input */
+}
+
+.controls button:hover {
+  background-color: #229954;
+}
+
+#predictionResult {
+  text-align: center;
+  margin: 30px auto;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c3e50;
+  background-color: #e8f6f3;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 5px solid var(--primary-color);
+  max-width: 80%;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
   margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #e0e0e0;
-  font-size: 0.9em;
-  color: #9e9e9e;
 }
 
-.loader {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #4caf50;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
+.chart-container {
+  position: relative;
+  height: 45vh;
+  min-height: 350px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.chart-container h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+/* ======== STYLE TOMBOL KUNJUNGI ======== */
+#maskot a {
+  display: inline-block; /* Membuat link bisa di-styling seperti block (padding, margin) */
+  background-color: var(
+    --primary-color
+  ); /* Menggunakan warna hijau utama dari tema */
+  color: var(--background-light); /* Teks warna putih */
+  padding: 12px 28px; /* Memberi ruang di dalam tombol (atas/bawah, kiri/kanan) */
+  margin-top: 15px; /* Memberi jarak dari teks paragraf di atasnya */
+  text-decoration: none; /* Menghilangkan garis bawah default pada link */
+  font-weight: bold; /* Menebalkan teks */
+  border-radius: 5px; /* Membuat sudut tombol sedikit melengkung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Menambahkan bayangan halus */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Animasi transisi saat kursor di atasnya */
+}
+
+#maskot a:hover {
+  background-color: #229954; /* Warna menjadi sedikit lebih gelap saat kursor di atas tombol */
+  transform: translateY(
+    -3px
+  ); /* Tombol sedikit terangkat ke atas saat disentuh kursor */
+}
+
+/* ======== FOOTER ======== */
+.main-footer {
+  background: var(--secondary-color);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
   }
-  100% {
-    transform: rotate(360deg);
+
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .main-nav li {
+    padding: 5px 0;
+  }
+
+  main {
+    margin-top: 120px; /* Sesuaikan dengan tinggi header baru */
+  }
+
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .text-container h2,
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
   }
 }

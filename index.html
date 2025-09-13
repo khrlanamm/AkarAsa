@@ -3,93 +3,337 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AKARASA</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Link to external CSS file -->
+    <title>Proyek Pemulihan Lahan</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>AKARASA</h1>
-        <p class="philosophy">
-          "AkarAsa" adalah tentang harapan yang membumi. "Akar" melambangkan
-          fondasi ilmu dan tindakan nyata yang menjadi sauh di tengah kerusakan,
-          sementara "Asa" adalah visi luhur akan pemulihan. Nama ini mengajarkan
-          bahwa sebuah cita-cita besar tidak lahir dari angan kosong, melainkan
-          harus tumbuh dari kebijaksanaan yang tertanam kuat dalam realitas,
-          mengubah keterpurukan menjadi kehidupan baru.
-        </p>
-      </header>
+    <header class="main-header">
+      <div class="container">
+        <a href="#" class="logo-link">
+          <img src="assets/logo.png" alt="Logo Proyek" class="logo-img" />
+          <span>Proyek Phytoremediasi</span>
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#gagasan">Gagasan</a></li>
+            <li><a href="#maskot">Maskot</a></li>
+            <li><a href="#alyssum">Alyssum murale</a></li>
+            <li><a href="#model">Model Matematika</a></li>
+            <li><a href="#prediksi">Alat Prediksi</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      <main>
-        <div class="input-section">
-          <h2>Parameter Simulasi</h2>
-          <form id="simulation-form">
-            <div class="form-group">
-              <label for="initial_A">Nilai Awal Biomassa (A₀) (kg/ha)</label>
-              <input
-                type="number"
-                id="initial_A"
-                name="initial_A"
-                value="50"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="initial_N">Nilai Awal Nikel (N₀) (mg/kg)</label>
-              <input
-                type="number"
-                id="initial_N"
-                name="initial_N"
-                value="2500"
-                required
-              />
-            </div>
-            <button type="submit" id="submit-btn">Simulasikan Pemulihan</button>
-          </form>
-        </div>
-
-        <div id="results-section" class="hidden">
-          <div id="loader" class="loader hidden"></div>
-
-          <p id="interpretation-text"></p>
-
-          <div class="plot-container">
-            <h2>Potret Fase Sistem</h2>
-            <canvas id="phase-plot-canvas"></canvas>
+    <main>
+      <section id="gagasan" class="content-section">
+        <div class="container content-layout">
+          <div class="image-container">
+            <img src="assets/logo.png" alt="Gagasan Pemulihan Lahan" />
           </div>
-
-          <div class="plot-container">
-            <h2>Grafik Time Series</h2>
-            <canvas id="ts-plot-canvas"></canvas>
+          <div class="text-container">
+            <h2>Gagasan Kami</h2>
+            <p>
+              Lahan bekas tambang nikel seringkali meninggalkan tanah yang
+              tercemar dan tidak produktif. Gagasan kami adalah memanfaatkan
+              kekuatan alam untuk memulihkan lahan ini melalui proses
+              fitoremediasi. Dengan menanam spesies tanaman hiperakumulator,
+              kita dapat secara bertahap menyerap logam berat dari tanah,
+              mengembalikannya menjadi lingkungan yang aman dan subur untuk masa
+              depan.
+            </p>
           </div>
-        </div>
-      </main>
-
-      <section class="articles-section">
-        <h2>Bacaan Terkait</h2>
-        <div class="articles-grid" id="articles-grid-container">
-          <!-- Article cards will be dynamically inserted here by JavaScript -->
         </div>
       </section>
+      <section id="maskot" class="content-section alternate-bg">
+        <div class="container content-layout">
+          <div class="image-container">
+            <img src="assets/maskot.png" alt="Maskot Proyek" />
+          </div>
+          <div class="text-container">
+            <h2>Maskot Proyek</h2>
+            <p>
+              Perkenalkan "Aly", maskot kami. Aly melambangkan semangat dan
+              ketahanan tanaman *Alyssum murale* yang menjadi ujung tombak dalam
+              proyek ini. Dengan senyum optimisnya, Aly merepresentasikan
+              harapan bahwa alam memiliki solusi cerdas untuk masalah lingkungan
+              yang kita hadapi. Ia menjadi pengingat bahwa solusi hijau bukan
+              hanya efektif, tetapi juga membawa kehidupan baru.
+            </p>
+          </div>
+          <div>
+            <a
+              href="https://app.vectary.com/viewer/v1/?model=61e2906a-20f4-43f4-866b-34c963efc88a&env=studio3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kunjungi
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="alyssum" class="content-section">
+        <div class="container content-layout">
+          <div class="image-container">
+            <img src="assets/tanaman alis.webp" alt="Tanaman Alyssum murale" />
+          </div>
+          <div class="text-container">
+            <h2>Mengenal <i>Alyssum murale</i></h2>
+            <p>
+              <i>Alyssum murale</i> adalah tanaman luar biasa yang dikenal
+              sebagai "hiperakumulator nikel". Tanaman ini memiliki kemampuan
+              unik untuk menyerap nikel dari tanah dalam konsentrasi yang sangat
+              tinggi dan menyimpannya di dalam jaringannya (daun dan batang)
+              tanpa meracuni dirinya sendiri. Kemampuan inilah yang
+              menjadikannya kandidat ideal untuk membersihkan tanah yang
+              terkontaminasi nikel secara alami dan efisien.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="model" class="content-section alternate-bg">
+        <div class="container content-layout">
+          <div class="image-container">
+            <img src="assets/model.png" alt="Persamaan Model Matematika" />
+            <img src="assets/parameter.png" alt="Tabel Parameter Model" />
+          </div>
+          <div class="text-container">
+            <h2>Model Matematika</h2>
+            <p>
+              Perilaku interaksi antara biomassa tanaman
+              <i>Alyssum murale</i> (A) dan konsentrasi nikel di dalam tanah (N)
+              dapat dimodelkan dengan sistem persamaan diferensial. Persamaan
+              pertama mendeskripsikan laju pertumbuhan biomassa yang dipengaruhi
+              oleh kapasitas tampung lingkungan dan efek toksisitas nikel.
+              Persamaan kedua menggambarkan perubahan konsentrasi nikel di
+              tanah, yang berkurang karena penyerapan oleh tanaman
+              (fitoekstraksi) dan pelindian alami, namun juga bertambah dari
+              pelepasan kembali oleh biomassa yang mati.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="prediksi" class="content-section">
+        <div class="container">
+          <h2 class="section-title">Alat Prediksi Pemulihan</h2>
+          <p class="section-subtitle">
+            Masukkan kondisi awal lahan untuk memvisualisasikan prediksi
+            pemulihan.
+          </p>
+          <div class="controls">
+            <div class="input-group">
+              <label for="initialA">Biomassa Awal (A₀) (kg/ha)</label>
+              <input type="number" id="initialA" value="100" />
+            </div>
+            <div class="input-group">
+              <label for="initialN">Konsentrasi Nikel Awal (N₀) (ppm)</label>
+              <input type="number" id="initialN" value="1500" />
+            </div>
+            <button id="runButton">Jalankan Simulasi</button>
+          </div>
+          <div id="predictionResult" style="display: none"></div>
+          <div class="charts">
+            <div class="chart-container">
+              <h3>Grafik Time Series</h3>
+              <canvas id="timeSeriesChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Grafik Potret Fasa</h3>
+              <canvas id="phasePortraitChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <p>&copy; 2025 Proyek Phytoremediasi. All rights reserved.</p>
+    </footer>
 
-      <footer>
-        <p>
-          &copy; 2025 RECLAIM-WEB Project. Ditenagai oleh Sains dan Harapan.
-        </p>
-      </footer>
-    </div>
+    <script>
+      let timeSeriesChartInstance;
+      let phasePortraitChartInstance;
 
-    <!-- Chart.js for plotting -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Link to external JavaScript file -->
-    <script src="script.js"></script>
+      document
+        .getElementById("runButton")
+        .addEventListener("click", runSimulation);
+
+      function runSimulation() {
+        const A0 = parseFloat(document.getElementById("initialA").value);
+        const N0 = parseFloat(document.getElementById("initialN").value);
+
+        if (isNaN(A0) || isNaN(N0) || A0 < 0 || N0 < 0) {
+          alert("Mohon masukkan nilai awal yang valid (angka positif).");
+          return;
+        }
+
+        const params = {
+          r: 2,
+          k: 8000,
+          c: 0.8,
+          b: 7500,
+          u: 20e-6,
+          a: 0.0015,
+          e: 0.03,
+        };
+        let A = A0;
+        let N = N0;
+
+        // DIUBAH: Langkah waktu (dt) dan waktu maksimum (maxTime) sekarang dalam satuan TAHUN
+        const dt = 0.1; // Langkah waktu 0.1 tahun untuk presisi yang baik
+        const maxTime = 50; // Durasi simulasi maksimum adalah 50 tahun
+
+        const timePoints = [],
+          A_values = [],
+          N_values = [];
+        let timeToSafe = -1;
+
+        for (let t = 0; t <= maxTime; t += dt) {
+          timePoints.push(t);
+          A_values.push(A);
+          N_values.push(N);
+
+          if (N < 70 && timeToSafe === -1) timeToSafe = t;
+
+          const dAdt =
+            params.r * A * (1 - A / params.k) -
+            ((params.c * N) / (params.b + N)) * A;
+          const dNdt = -params.u * A * N + params.a * A - params.e * N;
+
+          A += dAdt * dt;
+          N += dNdt * dt;
+
+          if (A < 0) A = 0;
+          if (N < 0) N = 0;
+        }
+
+        const resultDiv = document.getElementById("predictionResult");
+
+        // DIUBAH: Logika dan teks kesimpulan disesuaikan
+        if (timeToSafe !== -1) {
+          resultDiv.innerHTML = `Prediksi: Lahan mencapai batas aman (N < 70 ppm) dalam waktu sekitar <strong>${timeToSafe.toFixed(
+            1
+          )} tahun</strong>.`;
+          resultDiv.style.borderColor = "#27ae60"; // Warna hijau untuk berhasil
+        } else {
+          resultDiv.innerHTML = `Kesimpulan: Lahan <strong>belum akan pulih</strong> dalam waktu 50 tahun dengan kondisi awal ini.`;
+          resultDiv.style.borderColor = "#e74c3c"; // Warna merah untuk gagal
+        }
+        resultDiv.style.display = "block";
+
+        renderCharts(timePoints, A_values, N_values);
+      }
+
+      function renderCharts(time, biomass, nickel) {
+        if (timeSeriesChartInstance) timeSeriesChartInstance.destroy();
+        if (phasePortraitChartInstance) phasePortraitChartInstance.destroy();
+
+        const tsCtx = document
+          .getElementById("timeSeriesChart")
+          .getContext("2d");
+        timeSeriesChartInstance = new Chart(tsCtx, {
+          type: "line",
+          data: {
+            labels: time,
+            datasets: [
+              {
+                label: "Biomassa (A)",
+                data: biomass,
+                borderColor: "rgb(46, 204, 113)",
+                yAxisID: "yA",
+                pointRadius: 0,
+                borderWidth: 2,
+              },
+              {
+                label: "Konsentrasi Nikel (N)",
+                data: nickel,
+                borderColor: "rgb(192, 57, 43)",
+                yAxisID: "yN",
+                pointRadius: 0,
+                borderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: "index", intersect: false },
+            scales: {
+              // DIUBAH: Label sumbu x menjadi "Waktu (tahun)"
+              x: { title: { display: true, text: "Waktu (tahun)" } },
+              yA: {
+                type: "linear",
+                position: "left",
+                title: { display: true, text: "Biomassa (kg/ha)" },
+                grid: { drawOnChartArea: false },
+              },
+              yN: {
+                type: "linear",
+                position: "right",
+                title: { display: true, text: "Nikel (ppm)" },
+              },
+            },
+            plugins: {
+              annotation: {
+                annotations: {
+                  line1: {
+                    type: "line",
+                    yMin: 70,
+                    yMax: 70,
+                    yScaleID: "yN",
+                    borderColor: "rgb(52, 152, 219)",
+                    borderWidth: 2,
+                    borderDash: [6, 6],
+                    label: {
+                      content: "Batas Aman (70 ppm)",
+                      display: true,
+                      position: "start",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        const ppCtx = document
+          .getElementById("phasePortraitChart")
+          .getContext("2d");
+        const phaseData = biomass.map((val, index) => ({
+          x: val,
+          y: nickel[index],
+        }));
+        phasePortraitChartInstance = new Chart(ppCtx, {
+          type: "scatter",
+          data: {
+            datasets: [
+              {
+                label: "Trayektori (A, N)",
+                data: phaseData,
+                borderColor: "rgb(142, 68, 173)",
+                showLine: true,
+                pointRadius: 0,
+                borderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                title: { display: true, text: "Biomassa (A)" },
+                type: "linear",
+                position: "bottom",
+              },
+              y: { title: { display: true, text: "Konsentrasi Nikel (N)" } },
+            },
+          },
+        });
+      }
+
+      window.onload = runSimulation;
+    </script>
   </body>
 </html>
